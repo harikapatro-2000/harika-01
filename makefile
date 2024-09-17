@@ -32,4 +32,9 @@ clean:
 	@echo "Cleaning up dangling Kubernetes resources..."
 	kubectl delete pod --all --namespace ingress-nginx || true
 
-
+# Target: Verify the setup
+.PHONY: verify
+verify:	
+	@echo "Verifying Kind cluster and ingress controller setup..."
+	kubectl get nodes 	
+	kubectl get pods --all-namespaces
